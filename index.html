@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>zoeblain.com</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="css/98.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <main class="desktop" aria-label="Desktop">
+    <!-- Shortcuts -->
+    <nav class="icons" aria-label="Shortcuts">
+      <a class="icon" href="https://instagram.com/zoe.blain" target="_blank" rel="noopener">
+        <img src="assets/icon-instagram.png" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+      <a class="icon" href="mailto:zoe.blain.art@gmail.com">
+        <img src="assets/icon-mail.png" alt="Email" />
+        <span>zoe.blain.art<br>@gmail.com</span>
+      </a>
+    </nav>
+
+    <!-- Win98 window using 98.css semantics -->
+    <div class="win98popup window" role="dialog" aria-labelledby="dlg-title" aria-modal="true">
+      <div class="title-bar">
+        <div class="title-bar-text" id="dlg-title">System message</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="msg">
+          <img src="assets/icon-underconstruction.png" alt="Under construction" width="48" height="48" />
+          <p>zoeblain.com is under construction</p>
+        </div>
+        <div class="buttons">
+          <button id="okBtn" type="button">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taskbar -->
+    <footer class="taskbar" aria-label="Taskbar">
+      <!-- Start button -->
+      <button class="start-btn" type="button">
+        <img src="assets/icon-win98.png" alt="Start" class="start-icon" />
+        <span><strong>Start</strong></span>
+      </button>
+
+      <!-- Divider -->
+      <div class="task-separator" aria-hidden="true"></div>
+
+      <!-- Task buttons (System message) -->
+      <div class="task-area">
+        <button id="taskWindow" class="task-item is-active" type="button">
+          <span><strong>System message</strong></span>
+        </button>
+      </div>
+
+      <!-- Tray -->
+      <div class="tray-separator" aria-hidden="true"></div>
+      <div class="tray">
+        <img src="assets/icon-smiley.png" alt="Smiley" />
+        <span class="tray-label">zoeblain.com</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const dialog  = document.querySelector('.win98popup.window');
+    const ok      = document.getElementById('okBtn');
+    const xBtn    = document.querySelector('.title-bar-controls button[aria-label="Close"]');
+    const taskBtn = document.getElementById('taskWindow');
+
+    function showDialog() {
+
+      dialog.style.display = 'block';
+      dialog.removeAttribute('aria-hidden');
+      dialog.classList.remove('window-anim-out');
+      void dialog.offsetWidth;
+      dialog.classList.add('window-anim-in');
+      taskBtn.classList.add('is-active');
+      ok && ok.focus();
+    }
+
+    function hideDialog() {
+      dialog.classList.remove('window-anim-in');
+      dialog.classList.add('window-anim-out');
+      dialog.setAttribute('aria-hidden', 'true');
+
+      taskBtn.classList.remove('is-active');
+    }
+
+    function toggleDialog() {
+      const visible =
+        dialog.style.display !== 'none' &&
+        !dialog.hasAttribute('aria-hidden');
+
+      visible ? hideDialog() : showDialog();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      showDialog();
+
+      ok   && ok.addEventListener('click', hideDialog);
+      xBtn && xBtn.addEventListener('click', hideDialog);
+      taskBtn && taskBtn.addEventListener('click', toggleDialog);
+
+      dialog && dialog.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideDialog();
+      });
+
+      dialog && dialog.addEventListener('animationend', (e) => {
+        if (e.animationName === 'win98-zoom-out') {
+          dialog.style.display = 'none';
+        }
+        if (e.animationName === 'win98-zoom-in') {
+          dialog.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
