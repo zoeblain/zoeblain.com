@@ -22,7 +22,6 @@ html,
 body {
   height: 100%;
   margin: 0;
-  width: 100%;
   overflow-x: hidden;
   overflow-y: hidden; /* desktop: no scroll */
 }
@@ -31,14 +30,12 @@ body {
 @media (max-width: 600px) {
   html,
   body {
-    width: 100%;
-    max-width: 100%;
     overflow-y: auto;
     overflow-x: hidden !important;
+    max-width: 100%;
   }
 
   .desktop {
-    max-width: 100%;
     overflow-x: hidden !important;
   }
 }
@@ -137,7 +134,7 @@ option {
   left: 50%;
   top: 45%;
   transform: translate(-50%, -45%) scale(1);
-  width: min(88vw, 480px); /* slightly narrower to avoid edge overflow */
+  width: min(92vw, 480px);
   z-index: 2;
   display: block;
   opacity: 0; /* JS + animation will bring this to 1 */
@@ -347,7 +344,7 @@ option {
   }
 
   .win98popup.window {
-    width: 90vw;
+    width: 94vw;
     top: 52%;
     transform: translate(-50%, -52%) scale(1);
   }
@@ -385,20 +382,5 @@ option {
 
 .window-anim-out {
   animation: win98-zoom-out 120ms ease-in forwards;
-}
 
-/* ============================================
-   ANDROID HORIZONTAL SCROLLBAR SAFETY NET
-   ============================================ */
-@media (max-width: 600px) {
-  html,
-  body,
-  .desktop,
-  .taskbar,
-  .win98popup.window,
-  .icons {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip !important; /* hide any tiny overflow without scrolling */
-  }
 }
