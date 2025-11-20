@@ -26,11 +26,17 @@ body {
   overflow-y: hidden; /* desktop: no scroll */
 }
 
-/* Allow scroll on small screens */
+/* Allow scroll on small screens + prevent horizontal scroll */
 @media (max-width: 600px) {
   html,
   body {
     overflow-y: auto;
+    overflow-x: hidden !important;
+    max-width: 100%;
+  }
+
+  .desktop {
+    overflow-x: hidden !important;
   }
 }
 
@@ -54,7 +60,7 @@ body {
 
 /* Force Win98 cursor everywhere, even on clickable things */
 * {
-  cursor: url("assets/cursor.cur") 0 0, auto !important;
+  cursor: url("../assets/cursor.cur") 0 0, auto !important;
 }
 
 /* ============================================
@@ -376,4 +382,5 @@ option {
 
 .window-anim-out {
   animation: win98-zoom-out 120ms ease-in forwards;
+
 }
