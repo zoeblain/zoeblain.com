@@ -386,3 +386,19 @@ option {
 .window-anim-out {
   animation: win98-zoom-out 120ms ease-in forwards;
 }
+
+/* ============================================
+   ANDROID HORIZONTAL SCROLLBAR SAFETY NET
+   ============================================ */
+@media (max-width: 600px) {
+  html,
+  body,
+  .desktop,
+  .taskbar,
+  .win98popup.window,
+  .icons {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important; /* hide any tiny overflow without scrolling */
+  }
+}
