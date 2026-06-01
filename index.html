@@ -352,6 +352,10 @@ window.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
     });
 
+    bar.addEventListener("touchstart", (e) => {
+      if (isMobile()) e.stopPropagation();
+    });
+
     document.addEventListener("mousemove", (e) => {
       if (!dragging) return;
 
