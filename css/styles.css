@@ -77,10 +77,16 @@ select {
    ============================================ */
 .desktop {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--taskbar-h));
   padding-bottom: var(--taskbar-h);
   overflow-x: hidden;
   max-width: 100%;
+}
+
+@supports (height: 100dvh) {
+  .desktop {
+    min-height: calc(100dvh - var(--taskbar-h));
+  }
 }
 
 
