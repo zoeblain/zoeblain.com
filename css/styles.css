@@ -33,7 +33,10 @@ body {
 }
 
 @media (max-width: 600px) {
-  html, body { overflow-y: auto; }
+  html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 
 body {
@@ -77,6 +80,7 @@ select {
   min-height: 100vh;
   padding-bottom: var(--taskbar-h);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 
