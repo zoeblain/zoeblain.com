@@ -4,131 +4,372 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>zoeblain.com</title>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" href="/favicon.ico">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="css/98.css?v=3">
-<link rel="stylesheet" href="css/styles.css?v=3">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="css/98.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <main class="desktop" aria-label="Desktop">
-    <!-- Shortcuts -->
-    <nav class="icons" aria-label="Shortcuts">
-      <a class="icon" href="https://instagram.com/zoe.blain" target="_blank" rel="noopener">
-        <img src="assets/icon-instagram.png" alt="Instagram" />
-        <span>Instagram</span>
-      </a>
-      <a class="icon" href="mailto:zoe.blain.art@gmail.com">
-        <img src="assets/icon-mail.png" alt="Email" />
-        <span>zoe.blain.art<br>@gmail.com</span>
-      </a>
-    </nav>
 
-    <!-- Win98 window using 98.css semantics -->
-    <div class="win98popup window" role="dialog" aria-labelledby="dlg-title" aria-modal="true">
-      <div class="title-bar">
-        <div class="title-bar-text" id="dlg-title">System message</div>
-        <div class="title-bar-controls">
-          <button aria-label="Close"></button>
-        </div>
+<main class="desktop" aria-label="Desktop">
+
+  <!-- ICONS -->
+  <nav class="icons" aria-label="Shortcuts">
+
+    <a class="icon" href="https://instagram.com/zoe.blain" target="_blank" rel="noopener">
+      <img src="assets/icon-instagram.png" alt="Instagram" />
+      <span>Instagram</span>
+    </a>
+
+    <a class="icon" href="mailto:zoe.blain.art@gmail.com">
+      <img src="assets/icon-mail.png" alt="Email" />
+      <span>zoe.blain.art<br>@gmail.com</span>
+    </a>
+
+    <a class="icon" href="#" id="bioIcon">
+      <img src="assets/icon-bio.png" alt="Bio" />
+      <span>Bio and CV</span>
+    </a>
+
+    <a class="icon" href="https://art2025.finearts-music.unimelb.edu.au/graduates/zoe-blain" target="_blank">
+      <img src="assets/icon-vca.png" alt="VCA catalogue" />
+      <span>VCA grad show<br>catalogue</span>
+    </a>
+
+    <a class="icon" href="https://nopurchasemag.bigcartel.com/product/no-purchase-issue-three" target="_blank">
+      <img src="assets/icon-no-purchase.png" alt="No Purchase" />
+      <span>Buy no purchase<br>Issue 3</span>
+    </a>
+
+    <a class="icon" href="https://github.com/t4710r/network-sound-extension?tab=readme-ov-file" target="_blank">
+      <img src="assets/icon-sfpc-project.png" alt="SFPC" />
+      <span>School for Poetic<br>Computation<br>group project</span>
+    </a>
+
+  </nav>
+
+  <!-- SYSTEM WINDOW -->
+  <div class="window" data-window="system" role="dialog" aria-hidden="false">
+    <div class="title-bar">
+      <div class="title-bar-text">System message</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
       </div>
-      <div class="window-body">
-        <div class="msg">
-          <img src="assets/icon-underconstruction.png" alt="Under construction" width="48" height="48" />
-          <p>zoeblain.com is under construction</p>
-        </div>
-        <div class="buttons">
-          <button id="okBtn" type="button">OK</button>
+    </div>
+    <div class="window-body">
+      <div class="msg">
+        <img src="assets/icon-underconstruction.png" width="48" height="48" />
+        <p>zoeblain.com is under construction</p>
+      </div>
+      <div class="buttons">
+        <button id="okBtn">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIO WINDOW -->
+  <div id="bioWindow"
+       class="window"
+       data-window="bio"
+       role="dialog"
+       aria-hidden="true"
+       style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">Bio and CV</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="bio-body">
+      <div class="bio-scroll">
+        <div class="bio-text">
+Zoe Blain is an artist and editor working on Wurundjeri Woi Wurrung and Bunurong land. 
+
+Her practice involves printmaking, coding and collecting things (currently screenshots, computer parts and found text from the internet). 
+
+Her influences include the blue screen of death, hard garbage piles and the vast network of fibre optic cables that stretch across the ocean. 
+
+----------Group exhibitions----------
+
+* Flex Disket, GalleryGalleryInc, 2026
+* Spectrum, George Paton Gallery, 2025
+* Sēmeíōsis, Melbourne Design Week, MPavillion Parkville, George Paton Gallery and Practice Lab, 2025
+* Cut it Out, The Old Bar, 2016
+* Dark Side of the Docks, Food Court Art Space, 2016
+* The Full Picture, Studio 15, Nicholas Building, 2014
+
+--------------Education--------------
+
+* Machine Language, School for Poetic Computation, 2026
+* Graduate Certificate of Visual Art, University of Melbourne (VCA), 2024–2025
+* User Interface Design, RMIT University, 2021
+* User Experience Design, RMIT University, 2021
+* Bachelor of Media and Communication (Honours), RMIT University, 2016
+* Bachelor of Arts, (Creative Writing), RMIT University, 2012–2014
+* Certificate II in Interactive Digital Media, 2010–2011
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Taskbar -->
-    <footer class="taskbar" aria-label="Taskbar">
-      <!-- Start button -->
-      <button class="start-btn" type="button">
-        <img src="assets/icon-win98.png" alt="Start" class="start-icon" />
-        <span><strong>Start</strong></span>
-      </button>
+  <!-- TASKBAR -->
+  <footer class="taskbar">
+    <button class="start-btn">
+      <img src="assets/icon-win98.png" class="start-icon" />
+      <span><strong>Start</strong></span>
+    </button>
+    <div class="task-separator"></div>
+    <div class="task-area" id="taskArea"></div>
+    <div class="tray-separator"></div>
+    <div class="tray">
+      <img src="assets/icon-smiley.png" />
+      <span class="tray-label">zoeblain.com</span>
+    </div>
+  </footer>
 
-      <!-- Divider -->
-      <div class="task-separator" aria-hidden="true"></div>
+</main>
 
-      <!-- Task buttons (System message) -->
-      <div class="task-area">
-        <button id="taskWindow" class="task-item is-active" type="button">
-          <span><strong>System message</strong></span>
-        </button>
-      </div>
+<script>
+const taskArea = document.getElementById("taskArea");
 
-      <!-- Tray -->
-      <div class="tray-separator" aria-hidden="true"></div>
-      <div class="tray">
-        <img src="assets/icon-smiley.png" alt="Smiley" />
-        <span class="tray-label">zoeblain.com</span>
-      </div>
-    </footer>
-  </main>
+let z = 10;
+let active = "system";
+let cascadeOffset = 0;
+const CASCADE_STEP = 24;
 
-  <script>
-    const dialog  = document.querySelector('.win98popup.window');
-    const ok      = document.getElementById('okBtn');
-    const xBtn    = document.querySelector('.title-bar-controls button[aria-label="Close"]');
-    const taskBtn = document.getElementById('taskWindow');
+const registry = {
+  system: {
+    el: document.querySelector('[data-window="system"]'),
+    taskBtn: null,
+    label: "System message",
+    mobileLabel: "System message",
+    icon: "assets/task-icon-underconstruction.png",
+    created: true
+  },
+  bio: {
+    el: document.getElementById("bioWindow"),
+    taskBtn: null,
+    label: "Bio and CV",
+    mobileLabel: "Bio and CV",
+    icon: "assets/task-icon-bio.png",
+    created: false
+  }
+};
 
-    function showDialog() {
+// ── helpers ────────────────────────────────────────────────
 
-      dialog.style.display = 'block';
-      dialog.removeAttribute('aria-hidden');
-      dialog.classList.remove('window-anim-out');
-      void dialog.offsetWidth;
-      dialog.classList.add('window-anim-in');
-      taskBtn.classList.add('is-active');
-      ok && ok.focus();
-    }
+function isMobile() {
+  return window.innerWidth <= 600;
+}
 
-    function hideDialog() {
-      dialog.classList.remove('window-anim-in');
-      dialog.classList.add('window-anim-out');
-      dialog.setAttribute('aria-hidden', 'true');
-
-      taskBtn.classList.remove('is-active');
-    }
-
-    function toggleDialog() {
-      const visible =
-        dialog.style.display !== 'none' &&
-        !dialog.hasAttribute('aria-hidden');
-
-      visible ? hideDialog() : showDialog();
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      showDialog();
-
-      ok   && ok.addEventListener('click', hideDialog);
-      xBtn && xBtn.addEventListener('click', hideDialog);
-      taskBtn && taskBtn.addEventListener('click', toggleDialog);
-
-      dialog && dialog.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') hideDialog();
-      });
-
-      dialog && dialog.addEventListener('animationend', (e) => {
-        if (e.animationName === 'win98-zoom-out') {
-          dialog.style.display = 'none';
-        }
-        if (e.animationName === 'win98-zoom-in') {
-          dialog.style.display = 'block';
-        }
-      });
+function bringToFront(el) {
+  if (z > 500) {
+    z = 10;
+    Object.values(registry).forEach(w => {
+      if (w.el.style.display !== "none") {
+        w.el.style.zIndex = ++z;
+      }
     });
-  </script>
+  }
+  el.style.zIndex = ++z;
+}
+
+function setActive(name) {
+  active = name;
+  Object.entries(registry).forEach(([key, win]) => {
+    if (win.taskBtn) {
+      win.taskBtn.classList.toggle("is-active", key === name);
+    }
+  });
+  bringToFront(registry[name].el);
+}
+
+// ── taskbar buttons ────────────────────────────────────────
+
+function createTaskButton(id) {
+  const win = registry[id];
+  if (win.taskBtn) return win.taskBtn;
+
+  const btn = document.createElement("button");
+  btn.className = "task-item";
+  btn.dataset.task = id;
+
+  const label = isMobile() ? win.mobileLabel : win.label;
+  const icon = win.icon
+    ? `<img src="${win.icon}" style="width:16px;height:16px;margin-right:6px;image-rendering:pixelated;flex-shrink:0;">`
+    : "";
+  btn.innerHTML = icon + "<span><strong>" + label + "</strong></span>";
+  btn.onclick = () => toggleWindow(id);
+
+  taskArea.appendChild(btn);
+  win.taskBtn = btn;
+  return btn;
+}
+
+function removeTaskButton(id) {
+  const win = registry[id];
+  if (win.taskBtn) {
+    win.taskBtn.remove();
+    win.taskBtn = null;
+  }
+  win.created = false;
+}
+
+// ── positioning ────────────────────────────────────────────
+
+function centeredPosition(el) {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight - 36;
+  return {
+    left: Math.round((vw - el.offsetWidth)  / 2),
+    top:  Math.round((vh - el.offsetHeight) / 2)
+  };
+}
+
+// ── show / hide ────────────────────────────────────────────
+
+function showWindow(id) {
+  const win = registry[id];
+
+  if (!win.created) {
+    createTaskButton(id);
+    win.created = true;
+  }
+
+  win.el.style.display = "flex";
+  win.el.removeAttribute("aria-hidden");
+
+  const pos = centeredPosition(win.el);
+
+  if (isMobile()) {
+    win.el.style.left = pos.left + "px";
+    win.el.style.top  = pos.top  + "px";
+  } else {
+    win.el.style.left = (pos.left + cascadeOffset) + "px";
+    win.el.style.top  = (pos.top  + cascadeOffset) + "px";
+    cascadeOffset += CASCADE_STEP;
+    if (cascadeOffset > 120) cascadeOffset = 0;
+  }
+
+  win.el.style.transform = "none";
+  win.el.classList.remove("window-anim-out");
+  void win.el.offsetWidth;
+  win.el.classList.add("window-anim-in");
+
+  setActive(id);
+}
+
+function hideWindow(id) {
+  const win = registry[id];
+
+  win.el.classList.remove("window-anim-in");
+  win.el.classList.add("window-anim-out");
+  win.el.setAttribute("aria-hidden", "true");
+
+  removeTaskButton(id);
+
+  if (active === id) {
+    const next = Object.entries(registry).find(([key, w]) => {
+      return key !== id && w.el.style.display !== "none";
+    });
+    if (next) {
+      setActive(next[0]);
+    } else {
+      active = null;
+      Object.values(registry).forEach(w => {
+        if (w.taskBtn) w.taskBtn.classList.remove("is-active");
+      });
+    }
+  }
+}
+
+function toggleWindow(id) {
+  const win = registry[id];
+  const visible = win.el.style.display !== "none";
+  visible ? hideWindow(id) : showWindow(id);
+}
+
+// ── init ──
+
+window.addEventListener("DOMContentLoaded", () => {
+
+  createTaskButton("system");
+  showWindow("system");
+
+  document.getElementById("bioIcon").onclick = (e) => {
+    e.preventDefault();
+    showWindow("bio");
+  };
+
+  document.querySelectorAll(".title-bar-controls button").forEach(btn => {
+    btn.onclick = () => {
+      const win = btn.closest(".window");
+      hideWindow(win.dataset.window);
+    };
+  });
+
+  document.getElementById("okBtn").onclick = () => hideWindow("system");
+
+  document.querySelectorAll(".window").forEach(w => {
+    w.addEventListener("mousedown", () => setActive(w.dataset.window));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && active) hideWindow(active);
+  });
+
+  document.querySelectorAll(".window").forEach(w => {
+    w.addEventListener("animationend", (e) => {
+      if (e.animationName === "win98-zoom-out") {
+        w.style.display = "none";
+      }
+    });
+  });
+
+  document.querySelectorAll(".window").forEach(win => {
+    const bar = win.querySelector(".title-bar");
+
+    let dragging = false;
+    let offsetX  = 0;
+    let offsetY  = 0;
+
+    bar.addEventListener("mousedown", (e) => {
+      if (isMobile()) return;
+      if (e.target.closest(".title-bar-controls")) return;
+
+      dragging = true;
+      offsetX  = e.clientX - win.getBoundingClientRect().left;
+      offsetY  = e.clientY - win.getBoundingClientRect().top;
+
+      bringToFront(win);
+      document.body.classList.add("dragging");
+      e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!dragging) return;
+
+      const maxX = window.innerWidth  - win.offsetWidth;
+      const maxY = window.innerHeight - win.offsetHeight - 36;
+
+      win.style.left = Math.min(Math.max(e.clientX - offsetX, 0), maxX) + "px";
+      win.style.top  = Math.min(Math.max(e.clientY - offsetY, 0), maxY) + "px";
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!dragging) return;
+      dragging = false;
+      document.body.classList.remove("dragging");
+    });
+  });
+
+});
+</script>
 </body>
-
 </html>
-
-
