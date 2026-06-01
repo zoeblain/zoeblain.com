@@ -166,6 +166,18 @@ select {
   }
 }
 
+/* Prevent windows from being moved by touch on mobile */
+@media (max-width: 600px) {
+  .window {
+    touch-action: none;
+    pointer-events: auto;
+  }
+
+  .title-bar {
+    touch-action: none;
+  }
+}
+
 /* ============================================
    6. SYSTEM MESSAGE WINDOW
    ============================================ */
