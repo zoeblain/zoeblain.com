@@ -8,10 +8,7 @@
   --font-mono: "Lucida Console", monospace;
   --color-teal: #008080;
   --color-silver: #c0c0c0;
-
   --window-mobile-w: 88vw;
-
-  /* Bio window height on mobile */
   --bio-mobile-h: 52vh;
 }
 
@@ -21,22 +18,12 @@
    ============================================ */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-}
-
-@media (max-width: 600px) {
-  html, body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
 }
 
 body {
@@ -52,21 +39,11 @@ body {
   body { background-attachment: scroll; }
 }
 
-body.dragging {
-  user-select: none;
-}
+body.dragging { user-select: none; }
 
-* {
-  cursor: url("../assets/cursor.cur") 0 0, auto !important;
-}
+* { cursor: url("../assets/cursor.cur") 0 0, auto !important; }
 
-.window,
-.title-bar,
-button,
-label,
-input,
-textarea,
-select {
+.window, .title-bar, button, label, input, textarea, select {
   font-family: var(--font-ui) !important;
   font-size: 14px !important;
 }
@@ -77,16 +54,21 @@ select {
    ============================================ */
 .desktop {
   position: relative;
-  min-height: calc(100vh - var(--taskbar-h));
-  padding-bottom: var(--taskbar-h);
-  overflow-x: hidden;
-  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.window,
+.icons,
+.taskbar,
+.bsod {
+  pointer-events: auto;
 }
 
 @supports (height: 100dvh) {
-  .desktop {
-    min-height: calc(100dvh - var(--taskbar-h));
-  }
+  .desktop { height: 100dvh; }
 }
 
 
@@ -97,9 +79,15 @@ select {
   position: fixed;
   top: clamp(12px, 2vh, 24px);
   left: clamp(10px, 2vw, 28px);
-  display: grid;
-  gap: 18px;
   z-index: 10;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(auto-fill, minmax(80px, auto));
+  max-height: calc(100vh - var(--taskbar-h) - 20px);
+  padding-bottom: 64px;
+  gap: 18px;
+  align-content: start;
 }
 
 @media (max-width: 480px) {
@@ -139,7 +127,7 @@ select {
 
 
 /* ============================================
-   5. WINDOWS (shared)
+   5. WINDOWS — base (desktop)
    ============================================ */
 .window {
   position: absolute;
@@ -151,45 +139,48 @@ select {
   flex-direction: column;
 }
 
-/* Extend close button hit area invisibly */
-.title-bar-controls button[aria-label="Close"] {
-  position: relative;
-}
-
+.title-bar-controls button[aria-label="Close"] { position: relative; }
 .title-bar-controls button[aria-label="Close"]::after {
   content: "";
   position: absolute;
-  top:    -8px;
-  right:  -8px;
-  bottom: -8px;
-  left:   -8px;
+  top: -8px; right: -8px; bottom: -8px; left: -8px;
 }
 
+/* Title bar icon */
+.title-bar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+
+/* ============================================
+   5a. WINDOWS — mobile defaults
+   ============================================ */
 @media (max-width: 600px) {
   .window {
     width: var(--window-mobile-w) !important;
-    max-height: 80vh;
-  }
-}
-
-/* Prevent windows from being moved by touch on mobile */
-@media (max-width: 600px) {
-  .window {
+    max-height: calc(100vh - var(--taskbar-h) - 24px);
     touch-action: none;
     pointer-events: auto;
+    position: fixed !important;
+    left: 50% !important;
+    top: calc((100vh - var(--taskbar-h)) / 2) !important;
+    transform: translate(-50%, -50%) !important;
   }
-
-  .title-bar {
-    touch-action: none;
-  }
+  .title-bar { touch-action: none; }
 }
+
 
 /* ============================================
-   6. SYSTEM MESSAGE WINDOW
+   6. SYSTEM / WELCOME WINDOW
    ============================================ */
-[data-window="system"] {
-  width: 400px;
-}
+[data-window="system"] { width: 400px; }
 
 [data-window="system"] .window-body {
   padding: 12px 16px 10px !important;
@@ -198,43 +189,29 @@ select {
   gap: 10px;
 }
 
-.msg {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-}
-
-.msg img {
-  flex-shrink: 0;
-  image-rendering: auto;
-}
-
-.msg p {
-  font-size: 16px !important;
-  line-height: 1.3;
-  margin: 0;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-}
+.msg { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+.msg img { flex-shrink: 0; image-rendering: auto; }
+.msg p { font-size: 16px !important; line-height: 1.3; margin: 0; }
+.buttons { display: flex; justify-content: center; gap: 6px; }
 
 
 /* ============================================
-   7. BIO / NOTEPAD WINDOW
+   7. BIO / NOTEPAD WINDOWS
    ============================================ */
 #bioWindow {
   width: 520px;
   height: 380px;
+  max-height: none;
+}
+
+#sharedInfo {
+  width: 520px;
+  height: 380px;
+  max-height: none;
 }
 
 @media (max-width: 600px) {
-  #bioWindow {
-    height: var(--bio-mobile-h) !important;
-  }
+  #bioWindow { height: var(--bio-mobile-h) !important; }
 }
 
 .bio-body {
@@ -242,12 +219,14 @@ select {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .bio-scroll {
   flex: 1;
   overflow-y: scroll;
   background: #fff;
+  min-height: 0;
 }
 
 .bio-text {
@@ -258,15 +237,281 @@ select {
   white-space: pre-wrap;
 }
 
+/* Allow HTML links inside bio/info text */
+.bio-text a {
+  color: #00f;
+  text-decoration: underline;
+}
+
 
 /* ============================================
-   8. TASKBAR
+   8. IMAGE WINDOWS (desktop only)
+   ============================================ */
+.img-window { overflow: hidden; }
+
+.img-window .window-body,
+.video-window .window-body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 600px) {
+  .img-window { display: none !important; }
+}
+
+.img-body {
+  background: var(--color-silver);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 0 #808080, inset 0 -1px 0 #808080;
+}
+
+.img-body img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ============================================
+   9. VIDEO WINDOWS (desktop only)
+   ============================================ */
+.video-window { overflow: hidden; }
+
+@media (max-width: 600px) {
+  .video-window:not(#augustWindow) { display: none !important; }
+}
+
+.video-body {
+  background: var(--color-silver);
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.video-body iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* ============================================
+   10. 17 AUGUST VIDEO WINDOW
+   ============================================ */
+#augustWindow {
+  width: 280px;
+  max-height: none;
+  overflow: hidden;
+}
+
+#augustWindow .video-body {
+  height: 607px;
+}
+
+@media (max-width: 600px) {
+  #augustWindow {
+    width: var(--window-mobile-w) !important;
+    max-height: calc(100vh - var(--taskbar-h) - 24px) !important;
+    overflow-y: auto !important;
+  }
+  #augustWindow .video-body {
+    height: calc(var(--window-mobile-w) * 1560 / 720) !important;
+    flex-shrink: 0;
+  }
+}
+
+
+/* ============================================
+   11. JSPAINT WINDOW
+   ============================================ */
+#jspaintWindow {
+  width: min(95vw, 900px);
+  height: min(85vh, 650px);
+  max-height: none;
+}
+
+.jspaint-body {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+}
+
+.jspaint-body iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  #jspaintWindow {
+    width: 96vw !important;
+    height: 80vh !important;
+  }
+}
+
+
+/* ============================================
+   12. MOBILE VIEWER — shared viewer window
+   ============================================ */
+
+@media (min-width: 601px) {
+  .viewer-window { display: none !important; }
+}
+
+.viewer-window {
+  overflow: hidden;
+  max-height: none;
+}
+
+.viewer-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-silver);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.viewer-img-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--color-silver);
+  box-shadow: inset 0 1px 0 #808080, inset 0 -1px 0 #808080;
+}
+
+.viewer-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.viewer-video-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 0;
+  background: var(--color-silver);
+}
+
+.viewer-video-wrap iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  border: none;
+}
+
+.viewer-video-wrap.is-portrait iframe {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  max-width: 100%;
+}
+
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 8px;
+  background: var(--color-silver);
+  border-top: 1px solid #808080;
+  flex-shrink: 0;
+}
+
+.viewer-controls button { min-width: 60px; }
+
+#viewerCounter {
+  font-size: 13px;
+  font-family: var(--font-ui);
+  color: #000;
+  user-select: none;
+}
+
+
+/* ============================================
+   13. BSOD — Blue Screen of Death
+   ============================================ */
+.bsod {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0000aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default !important;
+}
+
+.bsod * { cursor: default !important; }
+
+.bsod-inner {
+  width: min(640px, 88vw);
+  color: #ffffff;
+  font-family: "Pixelated MS Sans Serif", "Courier New", monospace;
+  font-size: clamp(14px, 1.8vw, 22px);
+  line-height: 1.15;
+}
+
+.bsod-header {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1.2em;
+  background: #aaaaaa;
+  color: #0000aa;
+  padding: 2px 12px;
+  font-weight: bold;
+  font-size: inherit;
+}
+
+.bsod-inner p {
+  margin: 0;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+}
+
+.bsod-inner p + p { margin-top: 0.6em; }
+.bsod-error       { margin-top: 1.1em !important; }
+.bsod-continue    { margin-top: 1.3em !important; text-align: center; }
+
+.bsod-blink::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: #fff;
+  vertical-align: text-bottom;
+  animation: bsod-cursor 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes bsod-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+
+/* ============================================
+   14. TASKBAR
    ============================================ */
 .taskbar {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   height: var(--taskbar-h);
   display: flex;
   align-items: center;
@@ -288,9 +533,7 @@ select {
   flex-shrink: 0;
   margin: 0 4px;
   background: var(--color-silver);
-  box-shadow:
-    inset -2px 0 #ffffff,
-    inset  2px 0 #808080;
+  box-shadow: inset -2px 0 #ffffff, inset 2px 0 #808080;
 }
 
 .start-btn {
@@ -361,6 +604,12 @@ select {
     inset  2px  2px #dfdfdf;
 }
 
+.task-item span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .task-item.is-active {
   background: #dfdfdf;
   box-shadow:
@@ -379,10 +628,19 @@ select {
 
 @media (max-width: 600px) {
   .task-item {
-    flex: 1 1 auto;
-    max-width: none; 
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
     font-size: 14px !important;
     padding: 0 6px;
+  }
+
+  .task-item span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
   }
 }
 
@@ -406,38 +664,59 @@ select {
 
 
 /* ============================================
-   9. WINDOW ANIMATIONS
+   15. WINDOW ANIMATIONS
    ============================================ */
 @keyframes win98-zoom-in {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
 @keyframes win98-zoom-out {
-  from {
-    transform: scale(1);
-    opacity: 1;
+  from { transform: scale(1);   opacity: 1; }
+  to   { transform: scale(0.9); opacity: 0; }
+}
+
+.window { transform-origin: center center; }
+.window-anim-in  { animation: win98-zoom-in  140ms ease-out forwards; }
+.window-anim-out { animation: win98-zoom-out 120ms ease-in  forwards; }
+
+
+/* ============================================
+   16. MOBILE: project viewer stack
+   ============================================ */
+@media (max-width: 600px) {
+
+  .viewer-window,
+  #sharedInfo {
+    position: fixed !important;
+    left: 6vw !important;
+    width: var(--window-mobile-w) !important;
+    transform: none !important;
+    margin: 0 !important;
   }
-  to {
-    transform: scale(0.9);
-    opacity: 0;
+
+  .viewer-window {
+    top: 8px !important;
+    height: calc(100dvh - var(--taskbar-h) - 8px - 220px - 6px - 8px) !important;
   }
-}
 
-.window {
-  transform-origin: center center;
-}
+  #sharedInfo {
+    top: auto !important;
+    bottom: calc(var(--taskbar-h) + 8px) !important;
+    height: 220px !important;
+    max-height: 220px !important;
+    flex-direction: column !important;
+  }
 
-.window-anim-in {
-  animation: win98-zoom-in 140ms ease-out forwards;
-}
+  #sharedInfo .bio-body {
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+  }
 
-.window-anim-out {
-  animation: win98-zoom-out 120ms ease-in forwards;
+  #sharedInfo .bio-scroll {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
 }
