@@ -19,7 +19,6 @@
 
 <main class="desktop" aria-label="Desktop">
 
-  <!-- ICONS -->
   <nav class="icons" aria-label="Shortcuts">
 
     <a class="icon" href="https://instagram.com/zoe.blain" target="_blank" rel="noopener">
@@ -37,35 +36,46 @@
       <span>Bio and CV</span>
     </a>
 
-    <a class="icon" href="https://art2025.finearts-music.unimelb.edu.au/graduates/zoe-blain" target="_blank">
+    <a class="icon" href="#" id="augustIcon">
+      <img src="assets/icon-17-august.png" alt="17 August" />
+      <span>Poem:<br>17 August 2024</span>
+    </a>
+
+    <a class="icon" href="#" id="jspaintIcon">
+      <img src="assets/icon-paint.png" alt="MS Paint" />
+      <span>MS Paint</span>
+    </a>
+
+    <a class="icon" href="https://art2025.finearts-music.unimelb.edu.au/graduates/zoe-blain" target="_blank" rel="noopener noreferrer">
       <img src="assets/icon-vca.png" alt="VCA catalogue" />
       <span>VCA grad show<br>catalogue</span>
     </a>
 
-    <a class="icon" href="https://nopurchasemag.bigcartel.com/product/no-purchase-issue-three" target="_blank">
+    <a class="icon" href="https://nopurchasemag.bigcartel.com/product/no-purchase-issue-three" target="_blank" rel="noopener noreferrer">
       <img src="assets/icon-no-purchase.png" alt="No Purchase" />
       <span>Buy no purchase<br>Issue 3</span>
     </a>
 
-    <a class="icon" href="https://github.com/t4710r/network-sound-extension?tab=readme-ov-file" target="_blank">
+    <a class="icon" href="https://github.com/t4710r/network-sound-extension?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
       <img src="assets/icon-sfpc-project.png" alt="SFPC" />
       <span>School for Poetic<br>Computation<br>group project</span>
     </a>
 
   </nav>
 
-  <!-- SYSTEM WINDOW -->
+  <!-- SYSTEM / WELCOME WINDOW -->
   <div class="window" data-window="system" role="dialog" aria-hidden="false">
     <div class="title-bar">
-      <div class="title-bar-text">System message</div>
+      <div class="title-bar-text">Welcome</div>
       <div class="title-bar-controls">
         <button aria-label="Close"></button>
       </div>
     </div>
     <div class="window-body">
       <div class="msg">
-        <img src="assets/icon-underconstruction.png" width="48" height="48" />
-        <p>zoeblain.com is under construction</p>
+        <img src="assets/icon-welcome.png" width="48" height="48" />
+        <p>Welcome to my website!<br>
+          I live and work on the unceded lands of the Wurundjeri Woi Wurrung and Bunurong people of the Kulin Nation. It always was, always will be Aboriginal land.</p>
       </div>
       <div class="buttons">
         <button id="okBtn">OK</button>
@@ -74,26 +84,20 @@
   </div>
 
   <!-- BIO WINDOW -->
-  <div id="bioWindow"
-       class="window"
-       data-window="bio"
-       role="dialog"
-       aria-hidden="true"
-       style="display:none;">
+  <div id="bioWindow" class="window" data-window="bio" role="dialog"
+       aria-hidden="true" style="display:none;">
     <div class="title-bar">
       <div class="title-bar-text">Bio and CV</div>
-      <div class="title-bar-controls">
-        <button aria-label="Close"></button>
-      </div>
+      <div class="title-bar-controls"><button aria-label="Close"></button></div>
     </div>
     <div class="bio-body">
       <div class="bio-scroll">
         <div class="bio-text">
-Zoe Blain is an artist and editor working on Wurundjeri Woi Wurrung and Bunurong land. 
+Zoe Blain is an artist, writer and editor working on Wurundjeri Woi Wurrung and Bunurong land. 
 
-Her practice involves printmaking, coding and collecting things (currently screenshots, computer parts and found text from the internet). 
+She makes prints, codes and collects things, including screenshots, computer parts and found text from the internet. She also on the committee at <a href="https://trocaderoprojects.org.au/" target="_blank" rel="noopener noreferrer">Trocadero Projects</a>.
 
-Her influences include the blue screen of death, hard garbage piles and the vast network of fibre optic cables that stretch across the ocean. 
+Zoe's influences include the blue screen of death, hard garbage piles and the vast network of fibre optic cables that stretch across the ocean. 
 
 ----------Group exhibitions----------
 
@@ -103,6 +107,11 @@ Her influences include the blue screen of death, hard garbage piles and the vast
 * Cut it Out, The Old Bar, 2016
 * Dark Side of the Docks, Food Court Art Space, 2016
 * The Full Picture, Studio 15, Nicholas Building, 2014
+
+---------Recent publications---------
+
+* 'Continuing Until Further Notice', <em>no purchase</em> issue 3: debt, 2026
+* 'semiosis.py', <em>sidewalk syntax</em>, 2026
 
 --------------Education--------------
 
@@ -118,9 +127,94 @@ Her influences include the blue screen of death, hard garbage piles and the vast
     </div>
   </div>
 
+  <!-- 17 AUGUST POEM VIDEO WINDOW -->
+  <div id="augustWindow" class="window video-window" data-window="augustWindow"
+       role="dialog" aria-hidden="true" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">17 August 2024</div>
+      <div class="title-bar-controls"><button aria-label="Close"></button></div>
+    </div>
+    <div class="video-body" id="augustVideoBody">
+      <iframe src=""
+        id="augustIframe"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        style="width:100%;height:100%;"
+        title="17 August 2024"></iframe>
+    </div>
+  </div>
+
+  <!-- MS PAINT WINDOW -->
+  <div id="jspaintWindow" class="window" data-window="jspaintWindow"
+       role="dialog" aria-hidden="true" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text">untitled - Paint</div>
+      <div class="title-bar-controls"><button aria-label="Close"></button></div>
+    </div>
+    <div class="jspaint-body">
+      <iframe src="https://jspaint.app"
+        frameborder="0"
+        allow="fullscreen"
+        style="width:100%;height:100%;display:block;"
+        title="jsPaint"></iframe>
+    </div>
+  </div>
+
+  <!-- SHARED MOBILE VIEWER WINDOW -->
+  <div id="sharedViewer" class="window viewer-window"
+       data-window="sharedViewer" role="dialog"
+       aria-hidden="true" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text" id="viewerTitle">Project</div>
+      <div class="title-bar-controls"><button aria-label="Close"></button></div>
+    </div>
+    <div class="viewer-body">
+      <div class="viewer-img-wrap" id="viewerImgWrap">
+        <img id="viewerImg" src="" alt="" />
+      </div>
+      <div class="viewer-video-wrap" id="viewerVideoWrap" style="display:none;">
+        <iframe id="viewerIframe" src="" frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          style="width:100%;height:100%;"
+          title="video"></iframe>
+      </div>
+      <div class="viewer-controls">
+        <button id="viewerPrev">◀ Prev</button>
+        <span id="viewerCounter">1 / 1</span>
+        <button id="viewerNext">Next ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARED INFO WINDOW -->
+  <div id="sharedInfo" class="window" data-window="sharedInfo"
+       role="dialog" aria-hidden="true" style="display:none;">
+    <div class="title-bar">
+      <div class="title-bar-text" id="infoTitle">info.txt</div>
+      <div class="title-bar-controls"><button aria-label="Close"></button></div>
+    </div>
+    <div class="bio-body">
+      <div class="bio-scroll">
+        <div class="bio-text" id="infoText"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BSOD OVERLAY -->
+  <div id="bsod" class="bsod" aria-hidden="true" style="display:none;">
+    <div class="bsod-inner">
+      <div class="bsod-header">Windows</div>
+      <p>An error has occurred. To continue:</p>
+      <p>Press Enter to return to Windows, or</p>
+      <p>Press CTRL+ALT+DEL to restart your computer. If you do this, you will lose any unsaved information in all open applications.</p>
+      <p class="bsod-error">Error: OE : 019F : BFF9D3D6</p>
+      <p class="bsod-continue bsod-blink">Restarting in <span id="bsodCountdown">5</span>s or press any key to continue _</p>
+    </div>
+  </div>
+
   <!-- TASKBAR -->
   <footer class="taskbar">
-    <button class="start-btn">
+    <button class="start-btn" id="startBtn">
       <img src="assets/icon-win98.png" class="start-icon" />
       <span><strong>Start</strong></span>
     </button>
@@ -136,76 +230,247 @@ Her influences include the blue screen of death, hard garbage piles and the vast
 </main>
 
 <script>
-const taskArea = document.getElementById("taskArea");
+// ============================================================
+// PROJECT DEFINITIONS
+// ============================================================
 
-let z = 10;
-let active = "system";
-let cascadeOffset = 0;
-const CASCADE_STEP = 24;
+const IMG_MAX_W = 560;
+const IMG_MAX_H = 480;
+const TITLE_BAR_H = 22;
 
+function scaledImageSize(srcW, srcH, maxW, maxH) {
+  maxW = maxW || IMG_MAX_W;
+  maxH = maxH || IMG_MAX_H;
+  const ratio = srcW / srcH;
+  let w = srcW, h = srcH;
+  if (w > maxW) { w = maxW; h = Math.round(w / ratio); }
+  if (h > maxH) { h = maxH; w = Math.round(h * ratio); }
+  return { w: Math.round(w), h: Math.round(h) };
+}
+
+const projects = {
+
+  flexDisket: {
+    title: "Flex Disket",
+    folder: "assets/project-flex-disket",
+    icon: "assets/icon-flex-disket.png",
+    info: `Flex Disket
+GalleryGallery Inc
+23 April–2 May 2026
+
+------------------------------
+
+Flex Disket was the first of GalleryGallery's ongoing series of experiments into collective art making.
+
+Featuring Sally Anthony, Alrey Batol, Zoe Blain, Laine Stewart, Josh Wilson and Nina Wright`,
+    media: [
+      { type:"image", file:"flex-disket-01.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-02.jpg",         w:900,  h:1200 },
+      { type:"image", file:"flex-disket-03.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-04.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-05.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-06.jpg",         w:900,  h:1200 },
+      { type:"image", file:"flex-disket-07.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-08.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-09.jpg",         w:900,  h:1200 },
+      { type:"image", file:"flex-disket-10.jpg",         w:1200, h:900  },
+      { type:"image", file:"flex-disket-11.png",         w:540,  h:1200 },
+      { type:"image", file:"flex-disket-room-sheet.png", w:3507, h:2480,
+        windowW:900, windowH:636 },
+    ]
+  },
+
+  spectrum: {
+    title: "Spectrum",
+    folder: "assets/project-spectrum",
+    icon: "assets/icon-spectrum.png",
+    info: `Four-channel video installation for Spectrum 
+George Paton Gallery
+19 August–12 September 2025
+
+------------------------------
+
+Presented as part of MUDfest 2025, Spectrum showcases the work of sixteen student artists from the University of Melbourne, working across painting, sculpture, video and installation.
+
+Featuring artists Gala Jane Hazell, Soyo Paek, Takako Osawa, Sally Anthony, Annie Dancer, Nadhila Iffa Zakira, Zoe Blain, Syaza Nisrina, Rory Giezekamp, Finn Keighley, Natalie Tam, Nozomi Horie, Isamara (Maia) Gabrielle Blanch Ramos, May Du, Mary Nguyen, and Karen Spencer.`,
+    media: [
+      { type:"image", file:"spectrum-01.jpg",       w:1200, h:900  },
+      { type:"image", file:"spectrum-02.jpg",       w:1200, h:900  },
+      { type:"image", file:"spectrum-03.jpg",       w:1200, h:900  },
+      { type:"image", file:"spectrum-still-01.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-02.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-03.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-04.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-05.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-06.png", w:1200, h:675  },
+      { type:"image", file:"spectrum-still-07.png", w:1200, h:675  },
+      { type:"video", vimeoId:"1205208945", aspect:"landscape", label:"spectrum-installation-video" },
+      { type:"video", vimeoId:"1205208966", aspect:"landscape", label:"spectrum-clip" },
+    ]
+  },
+
+  semeiosis: {
+    title: "Sēmeíōsis",
+    folder: "assets/project-semeiosis",
+    icon: "assets/icon-semeiosis.png",
+    info: `Sēmeíōsis
+MPavillion Parkville
+13 May–15 May 2025
+
+------------------------------
+
+semiosis.py is a Python script that converts video to symbols based on the light and noise levels of the physical environment. The script disrupts the smooth exchange of 1s, 0s and RGB values from the camera to the screen. It also offers another way to engage with cameras in public spaces, which are often one-way and used for surveillance.
+
+Entertaining the ubiquity of signage and wayfinding in the modern cityscape, Sēmeíōsis brings together a diverse student cohort in thinking about the motifs, forms and infrastructures that instruct and inform the movement of bodies through space.
+
+This event was part of Melbourne Design Week 2025, an initiative of the Victorian Government through Creative Victoria.`,
+    media: [
+      { type:"image", file:"semeiosis-01.jpg",               w:1200, h:900  },
+      { type:"image", file:"semeiosis-02.jpg",               w:900,  h:1200 },
+      { type:"image", file:"semeiosis.py-screenshot-01.png", w:640,  h:480  },
+      { type:"image", file:"semeiosis.py-screenshot-02.png", w:640,  h:480  },
+      { type:"image", file:"semeiosis.py-screenshot-03.png", w:640,  h:480  },
+      { type:"video", vimeoId:"1205208976", aspect:"portrait", label:"semeiosis-video" },
+    ]
+  },
+
+  bluescreenPy: {
+    title: "bluescreen.py",
+    folder: "assets/project-bluescreen-py",
+    icon: "assets/icon-bluescreen-py.png",
+    info: `bluescreen.py
+VCA Artspace
+November 2025
+
+------------------------------
+
+bluescreen.py is a python script that converts video to scrambled Windows error codes.
+
+Image courtesy of the University of Melbourne. Photography by Christo Crocker.`,
+    media: [
+      { type:"image", file:"bluescreen.py-grad-show-installation-photo-by-christo-crocker.jpg",
+        w:1200, h:900 },
+      { type:"image", file:"bluescreen.py-grad-show-installation.jpg", w:1200, h:900 },
+      { type:"image", file:"bluescreen.py-screenshot.png",             w:720,  h:576 },
+      { type:"video", vimeoId:"1205209003", aspect:"landscape", label:"bluescreen.py-screen-recording" },
+    ]
+  },
+
+};
+
+// ============================================================
+// REGISTRY
+// ============================================================
 const registry = {
   system: {
     el: document.querySelector('[data-window="system"]'),
-    taskBtn: null,
-    label: "System message",
-    mobileLabel: "System msg",
-    icon: "assets/task-icon-underconstruction.png",
-    created: true
+    taskBtn: null, label: "Welcome", mobileLabel: "Welcome",
+    icon: "assets/task-icon-welcome.png", created: true
   },
   bio: {
     el: document.getElementById("bioWindow"),
-    taskBtn: null,
-    label: "Bio and CV",
-    mobileLabel: "Bio and CV",
-    icon: "assets/task-icon-bio.png",
-    created: false
+    taskBtn: null, label: "Bio and CV", mobileLabel: "Bio and CV",
+    icon: "assets/task-icon-notepad.png", created: false
+  },
+  augustWindow: {
+    el: document.getElementById("augustWindow"),
+    taskBtn: null, label: "17 August 2024", mobileLabel: "17 Aug",
+    icon: "assets/task-icon-video.png", created: false
+  },
+  jspaintWindow: {
+    el: document.getElementById("jspaintWindow"),
+    taskBtn: null, label: "untitled - Paint", mobileLabel: "Paint",
+    icon: "assets/task-icon-paint.png", created: false
+  },
+  sharedViewer: {
+    el: document.getElementById("sharedViewer"),
+    taskBtn: null, label: "Viewer", mobileLabel: "Viewer",
+    icon: "assets/task-icon-image.png", created: false
+  },
+  sharedInfo: {
+    el: document.getElementById("sharedInfo"),
+    taskBtn: null, label: "info.txt", mobileLabel: "info",
+    icon: "assets/task-icon-notepad.png", created: false
   }
 };
 
-// ── helpers ────────────────────────────────────────────────
+// ============================================================
+// TITLE BAR ICONS
+// ============================================================
 
-function isMobile() {
-  return window.innerWidth <= 600;
+function addTitleBarIcon(windowEl, iconSrc) {
+  if (!iconSrc) return;
+  const titleText = windowEl.querySelector(".title-bar-text");
+  if (!titleText || titleText.querySelector(".title-bar-icon")) return;
+  const img = document.createElement("img");
+  img.src = iconSrc;
+  img.className = "title-bar-icon";
+  img.alt = "";
+  img.setAttribute("aria-hidden", "true");
+  titleText.insertBefore(img, titleText.firstChild);
 }
 
+function addAllTitleBarIcons() {
+  Object.values(registry).forEach(win => {
+    if (win.el && win.icon) addTitleBarIcon(win.el, win.icon);
+  });
+}
+
+// ============================================================
+// HELPERS
+// ============================================================
+
+function isMobile() { return window.innerWidth <= 600; }
+
+let z = 10;
 function bringToFront(el) {
   if (z > 500) {
     z = 10;
     Object.values(registry).forEach(w => {
-      if (w.el.style.display !== "none") {
-        w.el.style.zIndex = ++z;
-      }
+      if (w.el && w.el.style.display !== "none") w.el.style.zIndex = ++z;
     });
   }
   el.style.zIndex = ++z;
 }
 
+let active = "system";
+const CASCADE_STEP = 24;
+
 function setActive(name) {
+  const reg = registry[name];
+  if (!reg) return;
   active = name;
-  Object.entries(registry).forEach(([key, win]) => {
-    if (win.taskBtn) {
-      win.taskBtn.classList.toggle("is-active", key === name);
-    }
+  Object.entries(registry).forEach(([k, w]) => {
+    if (w.taskBtn) w.taskBtn.classList.toggle("is-active", k === name);
   });
-  bringToFront(registry[name].el);
+  bringToFront(reg.el);
 }
 
-// ── taskbar buttons ────────────────────────────────────────
+// ============================================================
+// TASKBAR BUTTONS
+// ============================================================
 
 function createTaskButton(id) {
   const win = registry[id];
-  if (win.taskBtn) return win.taskBtn;
+  if (!win || win.taskBtn) return win ? win.taskBtn : null;
 
   const btn = document.createElement("button");
   btn.className = "task-item";
   btn.dataset.task = id;
 
   const label = isMobile() ? win.mobileLabel : win.label;
-  const icon = win.icon
+  const iconHtml = win.icon
     ? `<img src="${win.icon}" style="width:16px;height:16px;margin-right:6px;image-rendering:pixelated;flex-shrink:0;">`
     : "";
-  btn.innerHTML = icon + "<span><strong>" + label + "</strong></span>";
-  btn.onclick = () => toggleWindow(id);
+  btn.innerHTML = iconHtml + `<span><strong>${label}</strong></span>`;
+
+  btn.onclick = () => {
+    const w = registry[id];
+    if (!w) return;
+    if (w.el.style.display === "none") restoreWindow(id);
+    else if (active === id) minimiseWindow(id);
+    else setActive(id);
+  };
 
   taskArea.appendChild(btn);
   win.taskBtn = btn;
@@ -214,73 +479,121 @@ function createTaskButton(id) {
 
 function removeTaskButton(id) {
   const win = registry[id];
-  if (win.taskBtn) {
-    win.taskBtn.remove();
-    win.taskBtn = null;
-  }
+  if (!win) return;
+  if (win.taskBtn) { win.taskBtn.remove(); win.taskBtn = null; }
   win.created = false;
 }
 
-// ── positioning ────────────────────────────────────────────
+// ============================================================
+// MINIMISE / RESTORE
+// ============================================================
 
-function centeredPosition(el) {
+function minimiseWindow(id) {
+  const win = registry[id];
+  if (!win) return;
+  win.el.style.display = "none";
+  win.el.setAttribute("aria-hidden", "true");
+  if (win.taskBtn) win.taskBtn.classList.remove("is-active");
+  if (active === id) {
+    const next = Object.entries(registry).find(([k, w]) =>
+      k !== id && w.el && w.el.style.display !== "none");
+    if (next) setActive(next[0]); else active = null;
+  }
+}
+
+function restoreWindow(id) {
+  const win = registry[id];
+  if (!win) return;
+  win.el.style.display = "flex";
+  win.el.removeAttribute("aria-hidden");
+  win.el.classList.remove("window-anim-out");
+  void win.el.offsetWidth;
+  win.el.classList.add("window-anim-in");
+  setActive(id);
+}
+
+// ============================================================
+// POSITIONING
+// ============================================================
+
+function clampPosition(left, top, w, h) {
   const vw = window.innerWidth;
   const vh = window.innerHeight - 36;
   return {
-    left: Math.round((vw - el.offsetWidth)  / 2),
-    top:  Math.round((vh - el.offsetHeight) / 2)
+    left: Math.min(Math.max(left, 0), Math.max(vw - w, 0)),
+    top:  Math.min(Math.max(top,  0), Math.max(vh - h, 0))
   };
 }
 
-// ── show / hide ────────────────────────────────────────────
+function centeredPosition(w, h) {
+  return clampPosition(
+    Math.round((window.innerWidth  - w) / 2),
+    Math.round((window.innerHeight - 36 - h) / 2),
+    w, h
+  );
+}
 
-function showWindow(id) {
+let scatterSeed = 0;
+function scatteredPosition(w, h) {
+  const margin = 80;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight - 36;
+  const phi = 0.618033988749895;
+  const t = (scatterSeed * phi)       % 1;
+  const s = (scatterSeed * phi * 1.3) % 1;
+  scatterSeed++;
+  return clampPosition(
+    Math.round(margin + t * Math.max(vw - w - margin * 2, 0)),
+    Math.round(margin + s * Math.max(vh - h - margin * 2, 0)),
+    w, h
+  );
+}
+
+function positionWindow(el, pos) {
+  el.style.left      = pos.left + "px";
+  el.style.top       = pos.top  + "px";
+  el.style.transform = "none";
+}
+
+// ============================================================
+// SHOW / HIDE
+// ============================================================
+
+function showWindow(id, pos) {
   const win = registry[id];
-
-  if (!win.created) {
-    createTaskButton(id);
-    win.created = true;
-  }
+  if (!win) return;
+  if (!win.created) { createTaskButton(id); win.created = true; }
 
   win.el.style.display = "flex";
   win.el.removeAttribute("aria-hidden");
 
-  const pos = centeredPosition(win.el);
+  const elW = win.el.offsetWidth  || 400;
+  const elH = win.el.offsetHeight || 300;
+  positionWindow(win.el, pos || centeredPosition(elW, elH));
 
-  if (isMobile()) {
-    win.el.style.left = pos.left + "px";
-    win.el.style.top  = pos.top  + "px";
-  } else {
-    win.el.style.left = (pos.left + cascadeOffset) + "px";
-    win.el.style.top  = (pos.top  + cascadeOffset) + "px";
-    cascadeOffset += CASCADE_STEP;
-    if (cascadeOffset > 120) cascadeOffset = 0;
-  }
-
-  win.el.style.transform = "none";
   win.el.classList.remove("window-anim-out");
   void win.el.offsetWidth;
   win.el.classList.add("window-anim-in");
-
   setActive(id);
 }
 
 function hideWindow(id) {
   const win = registry[id];
-
+  if (!win) return;
   win.el.classList.remove("window-anim-in");
   win.el.classList.add("window-anim-out");
   win.el.setAttribute("aria-hidden", "true");
-
   removeTaskButton(id);
 
+  if (id === "augustWindow") {
+    document.getElementById("augustIframe").src = "";
+  }
+
   if (active === id) {
-    const next = Object.entries(registry).find(([key, w]) => {
-      return key !== id && w.el.style.display !== "none";
-    });
-    if (next) {
-      setActive(next[0]);
-    } else {
+    const next = Object.entries(registry).find(([k, w]) =>
+      k !== id && w.el && w.el.style.display !== "none");
+    if (next) setActive(next[0]);
+    else {
       active = null;
       Object.values(registry).forEach(w => {
         if (w.taskBtn) w.taskBtn.classList.remove("is-active");
@@ -291,14 +604,415 @@ function hideWindow(id) {
 
 function toggleWindow(id) {
   const win = registry[id];
-  const visible = win.el.style.display !== "none";
-  visible ? hideWindow(id) : showWindow(id);
+  if (!win) return;
+  win.el.style.display !== "none" ? hideWindow(id) : showWindow(id);
 }
 
-// ── init ──
+// ============================================================
+// VIDEO HELPERS
+// ============================================================
+
+function vimeoSrc(id, autoplay) {
+  const ap = autoplay ? "&autoplay=1&muted=1" : "";
+  return `https://player.vimeo.com/video/${id}?badge=0&autopause=0&player_id=0&app_id=58479${ap}`;
+}
+
+function videoWindowSize(aspect) {
+  const base = IMG_MAX_W;
+  if (aspect === "portrait") return { w: Math.round(base * 9/16), h: base };
+  if (aspect === "square")   return { w: base, h: base };
+  return { w: base, h: Math.round(base * 9/16) };
+}
+
+// ============================================================
+// DESKTOP: open project
+// ============================================================
+
+function openProjectDesktop(projectKey) {
+  const project = projects[projectKey];
+  if (!project) return;
+
+  scatterSeed = 0;
+  const images = project.media.filter(m => m.type === "image");
+  const videos = project.media.filter(m => m.type === "video");
+  const total  = images.length + videos.length;
+  let   opened = 0;
+
+  images.forEach((img, i) => {
+    setTimeout(() => {
+      const id  = projectKey + "_img_" + i;
+      const src = project.folder + "/" + img.file;
+      const maxW = img.windowW || IMG_MAX_W;
+      const maxH = img.windowH || IMG_MAX_H;
+      const { w: winW, h: imgH } = scaledImageSize(img.w, img.h, maxW, maxH);
+      const winH = imgH + TITLE_BAR_H;
+
+      const el = document.createElement("div");
+      el.className = "window img-window";
+      el.dataset.window = id;
+      el.setAttribute("role", "dialog");
+      el.setAttribute("aria-hidden", "true");
+      el.style.display = "none";
+      el.style.width   = winW + "px";
+
+      const windowLabel = img.label || img.file;
+      el.innerHTML = `
+        <div class="title-bar">
+          <div class="title-bar-text">${windowLabel}</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="img-body" style="height:${imgH}px;">
+          <img src="${src}" alt="${windowLabel}" />
+        </div>`;
+
+      document.querySelector(".desktop").appendChild(el);
+      registry[id] = {
+        el, taskBtn: null,
+        label: windowLabel, mobileLabel: windowLabel,
+        icon: "assets/task-icon-image.png", created: false
+      };
+
+      addTitleBarIcon(el, "assets/task-icon-image.png");
+
+      el.querySelector(".title-bar-controls button").onclick = () => hideWindow(id);
+      el.addEventListener("mousedown", () => { if (registry[id]) setActive(id); });
+      el.addEventListener("animationend", e => {
+        if (e.animationName === "win98-zoom-out") el.style.display = "none";
+      });
+      makeDraggable(el);
+
+      opened++;
+      showWindow(id, scatteredPosition(winW, winH));
+      if (opened === total) openInfoDesktop(project);
+    }, i * 80);
+  });
+
+  videos.forEach((vid, i) => {
+    setTimeout(() => {
+      const id    = projectKey + "_vid_" + i;
+      const { w: winW, h: vidH } = videoWindowSize(vid.aspect);
+      const winH  = vidH + TITLE_BAR_H;
+      const label = vid.label || (project.title + " — video " + (i + 1));
+
+      const el = document.createElement("div");
+      el.className = "window video-window";
+      el.dataset.window = id;
+      el.setAttribute("role", "dialog");
+      el.setAttribute("aria-hidden", "true");
+      el.style.display = "none";
+      el.style.width   = winW + "px";
+
+      el.innerHTML = `
+        <div class="title-bar">
+          <div class="title-bar-text">${label}</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="video-body" style="height:${vidH}px;">
+          <iframe src="${vimeoSrc(vid.vimeoId, true)}"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="width:100%;height:100%;"
+            title="${label}"></iframe>
+        </div>`;
+
+      document.querySelector(".desktop").appendChild(el);
+      registry[id] = {
+        el, taskBtn: null,
+        label: label, mobileLabel: label,
+        icon: "assets/task-icon-video.png", created: false
+      };
+
+      addTitleBarIcon(el, "assets/task-icon-video.png");
+
+      el.querySelector(".title-bar-controls button").onclick = () => hideWindow(id);
+      el.addEventListener("mousedown", () => { if (registry[id]) setActive(id); });
+      el.addEventListener("animationend", e => {
+        if (e.animationName === "win98-zoom-out") el.style.display = "none";
+      });
+      makeDraggable(el);
+
+      opened++;
+      showWindow(id, scatteredPosition(winW, winH));
+      if (opened === total) openInfoDesktop(project);
+    }, (images.length + i) * 80);
+  });
+
+  if (total === 0) openInfoDesktop(project);
+}
+
+function openInfoDesktop(project) {
+  document.getElementById("infoTitle").textContent = project.title + " — info.txt";
+  document.getElementById("infoText").textContent  = project.info;
+  registry.sharedInfo.label       = project.title + " — info";
+  registry.sharedInfo.mobileLabel = "info.txt";
+
+  if (registry.sharedInfo.taskBtn) {
+    registry.sharedInfo.taskBtn.remove();
+    registry.sharedInfo.taskBtn = null;
+    registry.sharedInfo.created = false;
+  }
+
+  const el  = registry.sharedInfo.el;
+  const existingIcon = el.querySelector(".title-bar-text .title-bar-icon");
+  if (existingIcon) existingIcon.src = "assets/task-icon-notepad.png";
+  else addTitleBarIcon(el, "assets/task-icon-notepad.png");
+
+  const elW = el.offsetWidth  || 460;
+  const elH = el.offsetHeight || 320;
+  setTimeout(() => showWindow("sharedInfo", centeredPosition(elW, elH)), 100);
+}
+
+// ============================================================
+// MOBILE: shared viewer
+// ============================================================
+
+let viewerItems   = [];
+let viewerIndex   = 0;
+let viewerProject = null;
+
+function openProjectMobile(projectKey) {
+  const project = projects[projectKey];
+  if (!project) return;
+
+  viewerProject = project;
+  viewerItems   = project.media;
+  viewerIndex   = 0;
+
+  document.getElementById("viewerTitle").textContent = project.title;
+  registry.sharedViewer.label       = project.title;
+  registry.sharedViewer.mobileLabel = project.title.slice(0, 10);
+  const viewerTitleEl = registry.sharedViewer.el.querySelector(".title-bar-text");
+  const existingViewerIcon = viewerTitleEl ? viewerTitleEl.querySelector(".title-bar-icon") : null;
+  if (existingViewerIcon) existingViewerIcon.src = project.icon;
+  else addTitleBarIcon(registry.sharedViewer.el, project.icon);
+  if (registry.sharedViewer.taskBtn) {
+    registry.sharedViewer.taskBtn.querySelector("span").innerHTML =
+      "<strong>" + project.title.slice(0, 10) + "</strong>";
+  }
+
+  updateMobileViewer();
+
+  const taskbarH = 36;
+  const marginT  = 8;
+  const infoH    = 220;
+  const gap      = 6;
+  const marginB  = 8;
+
+  const vw       = window.innerWidth;
+  const vh       = window.innerHeight;
+  const winW     = Math.round(vw * 0.88);
+  const leftX    = Math.round(vw * 0.06);
+  const viewerH  = vh - taskbarH - marginT - infoH - gap - marginB;
+
+  const viewerEl = registry.sharedViewer.el;
+  viewerEl.style.width     = winW + "px";
+  viewerEl.style.height    = viewerH + "px";
+  viewerEl.style.left      = leftX + "px";
+  viewerEl.style.top       = marginT + "px";
+  viewerEl.style.bottom    = "auto";
+  viewerEl.style.transform = "none";
+
+  if (!registry.sharedViewer.created) {
+    createTaskButton("sharedViewer");
+    registry.sharedViewer.created = true;
+  }
+  if (registry.sharedViewer.taskBtn) {
+    const taskBtnIcon = registry.sharedViewer.taskBtn.querySelector("img");
+    if (taskBtnIcon) taskBtnIcon.src = project.icon;
+  }
+  viewerEl.style.display = "flex";
+  viewerEl.removeAttribute("aria-hidden");
+  viewerEl.classList.remove("window-anim-out");
+  void viewerEl.offsetWidth;
+  viewerEl.classList.add("window-anim-in");
+  setActive("sharedViewer");
+
+  setTimeout(() => {
+    document.getElementById("infoTitle").textContent = project.title + " — info.txt";
+    document.getElementById("infoText").textContent  = project.info;
+    registry.sharedInfo.label       = project.title + " — info";
+    registry.sharedInfo.mobileLabel = "info.txt";
+    if (registry.sharedInfo.taskBtn) {
+      registry.sharedInfo.taskBtn.querySelector("span").innerHTML =
+        "<strong>" + registry.sharedInfo.mobileLabel + "</strong>";
+    }
+    const infoTitleEl = registry.sharedInfo.el.querySelector(".title-bar-text");
+    const existingInfoIcon = infoTitleEl ? infoTitleEl.querySelector(".title-bar-icon") : null;
+    if (existingInfoIcon) existingInfoIcon.src = "assets/task-icon-notepad.png";
+    else addTitleBarIcon(registry.sharedInfo.el, "assets/task-icon-notepad.png");
+
+    const infoEl = registry.sharedInfo.el;
+    infoEl.style.width     = winW + "px";
+    infoEl.style.height    = infoH + "px";
+    infoEl.style.left      = leftX + "px";
+    infoEl.style.top       = (vh - taskbarH - marginB - infoH) + "px";
+    infoEl.style.bottom    = "auto";
+    infoEl.style.transform = "none";
+
+    if (!registry.sharedInfo.created) {
+      createTaskButton("sharedInfo");
+      registry.sharedInfo.created = true;
+    }
+    infoEl.style.display = "flex";
+    infoEl.removeAttribute("aria-hidden");
+    infoEl.classList.remove("window-anim-out");
+    void infoEl.offsetWidth;
+    infoEl.classList.add("window-anim-in");
+    setActive("sharedInfo");
+  }, 80);
+}
+
+function updateMobileViewer() {
+  if (!viewerProject || !viewerItems.length) return;
+
+  const item      = viewerItems[viewerIndex];
+  const total     = viewerItems.length;
+  const imgWrap   = document.getElementById("viewerImgWrap");
+  const videoWrap = document.getElementById("viewerVideoWrap");
+  const iframe    = document.getElementById("viewerIframe");
+  const img       = document.getElementById("viewerImg");
+
+  document.getElementById("viewerCounter").textContent =
+    (viewerIndex + 1) + " / " + total;
+
+  if (item.type === "video") {
+    imgWrap.style.display   = "none";
+    videoWrap.style.display = "flex";
+    videoWrap.classList.toggle("is-portrait", item.aspect === "portrait");
+    const newSrc = vimeoSrc(item.vimeoId);
+    if (iframe.src !== newSrc) iframe.src = newSrc;
+  } else {
+    videoWrap.style.display = "none";
+    imgWrap.style.display   = "flex";
+    iframe.src = "";
+    img.src = viewerProject.folder + "/" + item.file;
+    img.alt = item.file;
+  }
+}
+
+// ============================================================
+// PROJECT ICONS
+// ============================================================
+
+function buildProjectIcons() {
+  const nav     = document.querySelector(".icons");
+  const vcaIcon = nav.querySelector('a[href*="finearts-music"]');
+
+  Object.entries(projects).forEach(([key, project]) => {
+    const a = document.createElement("a");
+    a.className = "icon";
+    a.href = "#";
+    a.id   = key + "Icon";
+    a.innerHTML = `<img src="${project.icon}" alt="${project.title}" /><span>${project.title}</span>`;
+    a.onclick = (e) => {
+      e.preventDefault();
+      if (isMobile()) openProjectMobile(key);
+      else            openProjectDesktop(key);
+    };
+    nav.insertBefore(a, vcaIcon);
+  });
+}
+
+// ============================================================
+// BSOD
+// ============================================================
+
+let bsodTimer = null;
+
+function showBsod() {
+  const bsod = document.getElementById("bsod");
+  bsod.style.display = "flex";
+  bsod.removeAttribute("aria-hidden");
+
+  let seconds = 5;
+  document.getElementById("bsodCountdown").textContent = seconds;
+
+  bsodTimer = setInterval(() => {
+    seconds--;
+    document.getElementById("bsodCountdown").textContent = seconds;
+    if (seconds <= 0) hideBsod();
+  }, 1000);
+}
+
+function hideBsod() {
+  clearInterval(bsodTimer);
+  const bsod = document.getElementById("bsod");
+  bsod.style.display = "none";
+  bsod.setAttribute("aria-hidden", "true");
+}
+
+// ============================================================
+// DRAG
+// ============================================================
+
+function makeDraggable(win) {
+  const bar = win.querySelector(".title-bar");
+  if (!bar) return;
+
+  let dragging = false, offsetX = 0, offsetY = 0;
+
+  bar.addEventListener("mousedown", (e) => {
+    if (isMobile()) return;
+    if (e.target.closest(".title-bar-controls")) return;
+    dragging = true;
+    offsetX  = e.clientX - win.getBoundingClientRect().left;
+    offsetY  = e.clientY - win.getBoundingClientRect().top;
+    bringToFront(win);
+    document.body.classList.add("dragging");
+    e.preventDefault();
+  });
+
+  bar.addEventListener("touchstart", (e) => {
+    if (isMobile()) e.stopPropagation();
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!dragging) return;
+    const maxX = window.innerWidth  - win.offsetWidth;
+    const maxY = window.innerHeight - win.offsetHeight - 36;
+    win.style.left = Math.min(Math.max(e.clientX - offsetX, 0), maxX) + "px";
+    win.style.top  = Math.min(Math.max(e.clientY - offsetY, 0), maxY) + "px";
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (!dragging) return;
+    dragging = false;
+    document.body.classList.remove("dragging");
+  });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+
+const taskArea = document.getElementById("taskArea");
+
+function forceHideSharedWindows() {
+  ["sharedViewer", "sharedInfo"].forEach(id => {
+    const w = registry[id];
+    if (w && w.el) {
+      w.el.style.display = "none";
+      w.el.setAttribute("aria-hidden", "true");
+      w.created = false;
+      if (w.taskBtn) { w.taskBtn.remove(); w.taskBtn = null; }
+    }
+  });
+}
+
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted) forceHideSharedWindows();
+});
 
 window.addEventListener("DOMContentLoaded", () => {
 
+  forceHideSharedWindows();
+
+  buildProjectIcons();
+  addAllTitleBarIcons();
   createTaskButton("system");
   showWindow("system");
 
@@ -307,71 +1021,59 @@ window.addEventListener("DOMContentLoaded", () => {
     showWindow("bio");
   };
 
-  document.querySelectorAll(".title-bar-controls button").forEach(btn => {
+  document.getElementById("augustIcon").onclick = (e) => {
+    e.preventDefault();
+    const iframe = document.getElementById("augustIframe");
+    iframe.src = vimeoSrc("1207241027", true);
+    showWindow("augustWindow");
+  };
+
+  document.getElementById("jspaintIcon").onclick = (e) => {
+    e.preventDefault();
+    showWindow("jspaintWindow");
+  };
+
+  document.getElementById("startBtn").onclick = () => showBsod();
+
+  document.addEventListener("keydown", (e) => {
+    const bsod = document.getElementById("bsod");
+    if (bsod.style.display !== "none") { hideBsod(); return; }
+    if (e.key === "Escape" && active) hideWindow(active);
+  });
+
+  document.getElementById("bsod").addEventListener("click", hideBsod);
+
+  document.querySelectorAll(".window .title-bar-controls button").forEach(btn => {
     btn.onclick = () => {
       const win = btn.closest(".window");
-      hideWindow(win.dataset.window);
+      if (win && win.dataset.window) hideWindow(win.dataset.window);
     };
   });
 
   document.getElementById("okBtn").onclick = () => hideWindow("system");
 
-  document.querySelectorAll(".window").forEach(w => {
-    w.addEventListener("mousedown", () => setActive(w.dataset.window));
-  });
+  document.getElementById("viewerPrev").onclick = () => {
+    viewerIndex = (viewerIndex - 1 + viewerItems.length) % viewerItems.length;
+    updateMobileViewer();
+  };
+  document.getElementById("viewerNext").onclick = () => {
+    viewerIndex = (viewerIndex + 1) % viewerItems.length;
+    updateMobileViewer();
+  };
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && active) hideWindow(active);
+  document.querySelectorAll(".window").forEach(w => {
+    w.addEventListener("mousedown", () => {
+      if (w.dataset.window) setActive(w.dataset.window);
+    });
   });
 
   document.querySelectorAll(".window").forEach(w => {
     w.addEventListener("animationend", (e) => {
-      if (e.animationName === "win98-zoom-out") {
-        w.style.display = "none";
-      }
+      if (e.animationName === "win98-zoom-out") w.style.display = "none";
     });
   });
 
-  document.querySelectorAll(".window").forEach(win => {
-    const bar = win.querySelector(".title-bar");
-
-    let dragging = false;
-    let offsetX  = 0;
-    let offsetY  = 0;
-
-    bar.addEventListener("mousedown", (e) => {
-      if (isMobile()) return;
-      if (e.target.closest(".title-bar-controls")) return;
-
-      dragging = true;
-      offsetX  = e.clientX - win.getBoundingClientRect().left;
-      offsetY  = e.clientY - win.getBoundingClientRect().top;
-
-      bringToFront(win);
-      document.body.classList.add("dragging");
-      e.preventDefault();
-    });
-
-    bar.addEventListener("touchstart", (e) => {
-      if (isMobile()) e.stopPropagation();
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      if (!dragging) return;
-
-      const maxX = window.innerWidth  - win.offsetWidth;
-      const maxY = window.innerHeight - win.offsetHeight - 36;
-
-      win.style.left = Math.min(Math.max(e.clientX - offsetX, 0), maxX) + "px";
-      win.style.top  = Math.min(Math.max(e.clientY - offsetY, 0), maxY) + "px";
-    });
-
-    document.addEventListener("mouseup", () => {
-      if (!dragging) return;
-      dragging = false;
-      document.body.classList.remove("dragging");
-    });
-  });
+  document.querySelectorAll(".window").forEach(w => makeDraggable(w));
 
 });
 </script>
