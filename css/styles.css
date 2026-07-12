@@ -84,10 +84,14 @@ body.dragging { user-select: none; }
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(auto-fill, minmax(80px, auto));
-  max-height: calc(100vh - var(--taskbar-h) - 20px);
-  padding-bottom: 64px;
+  max-height: calc(100vh - var(--taskbar-h) - 48px);
   gap: 18px;
   align-content: start;
+  padding-bottom: 8px;
+}
+
+@supports (height: 100dvh) {
+  .icons { max-height: calc(100dvh - var(--taskbar-h) - 48px); }
 }
 
 @media (max-width: 480px) {
@@ -96,6 +100,7 @@ body.dragging { user-select: none; }
     left: 18px;
     gap: 10px;
     z-index: 3;
+    max-height: calc(100dvh - var(--taskbar-h) - 48px);
   }
 }
 
@@ -237,7 +242,6 @@ body.dragging { user-select: none; }
   white-space: pre-wrap;
 }
 
-/* Allow HTML links inside bio/info text */
 .bio-text a {
   color: #00f;
   text-decoration: underline;
@@ -283,7 +287,7 @@ body.dragging { user-select: none; }
 .video-window { overflow: hidden; }
 
 @media (max-width: 600px) {
-  .video-window:not(#augustWindow) { display: none !important; }
+  .video-window { display: none !important; }
 }
 
 .video-body {
@@ -302,7 +306,9 @@ body.dragging { user-select: none; }
 
 
 /* ============================================
-   10. 17 AUGUST VIDEO WINDOW
+   10. 17 AUGUST VIDEO WINDOW (desktop only)
+   Portrait 720×1560 (9:19.5 ratio).
+   280px wide × 607px tall, no letterboxing.
    ============================================ */
 #augustWindow {
   width: 280px;
@@ -312,18 +318,6 @@ body.dragging { user-select: none; }
 
 #augustWindow .video-body {
   height: 607px;
-}
-
-@media (max-width: 600px) {
-  #augustWindow {
-    width: var(--window-mobile-w) !important;
-    max-height: calc(100vh - var(--taskbar-h) - 24px) !important;
-    overflow-y: auto !important;
-  }
-  #augustWindow .video-body {
-    height: calc(var(--window-mobile-w) * 1560 / 720) !important;
-    flex-shrink: 0;
-  }
 }
 
 
@@ -602,6 +596,12 @@ body.dragging { user-select: none; }
     inset  1px  1px #ffffff,
     inset -2px -2px #808080,
     inset  2px  2px #dfdfdf;
+}
+
+.task-item img {
+  display: block;
+  align-self: center;
+  flex-shrink: 0;
 }
 
 .task-item span {
