@@ -75,7 +75,7 @@
       <div class="msg">
         <img src="assets/icon-welcome.png" width="48" height="48" />
         <p>Welcome to my website!<br>
-          I live and work on the unceded lands of the Wurundjeri Woi Wurrung and Bunurong peoples of the Kulin Nation. It always was, always will be Aboriginal land.</p>
+          I live and work on the unceded land of the Wurundjeri Woi Wurrung and Bunurong peoples of the Kulin Nation. It always was, always will be Aboriginal land.</p>
       </div>
       <div class="buttons">
         <button id="okBtn">OK</button>
@@ -127,7 +127,7 @@ Zoe's influences include the blue screen of death, hard garbage piles and the va
     </div>
   </div>
 
-  <!-- 17 AUGUST POEM VIDEO WINDOW -->
+  <!-- 17 AUGUST POEM VIDEO WINDOW (desktop only) -->
   <div id="augustWindow" class="window video-window" data-window="augustWindow"
        role="dialog" aria-hidden="true" style="display:none;">
     <div class="title-bar">
@@ -460,7 +460,7 @@ function createTaskButton(id) {
 
   const label = isMobile() ? win.mobileLabel : win.label;
   const iconHtml = win.icon
-    ? `<img src="${win.icon}" style="width:16px;height:16px;margin-right:6px;image-rendering:pixelated;flex-shrink:0;">`
+    ? `<img src="${win.icon}" style="width:16px;height:16px;margin-right:6px;image-rendering:pixelated;flex-shrink:0;align-self:center;">`
     : "";
   btn.innerHTML = iconHtml + `<span><strong>${label}</strong></span>`;
 
@@ -694,7 +694,7 @@ function openProjectDesktop(projectKey) {
       const id    = projectKey + "_vid_" + i;
       const { w: winW, h: vidH } = videoWindowSize(vid.aspect);
       const winH  = vidH + TITLE_BAR_H;
-      const label = vid.label || (project.title + " — video " + (i + 1));
+      const label = vid.label || (project.title + " video " + (i + 1));
 
       const el = document.createElement("div");
       el.className = "window video-window";
@@ -747,7 +747,7 @@ function openProjectDesktop(projectKey) {
 function openInfoDesktop(project) {
   document.getElementById("infoTitle").textContent = project.title + " info.txt";
   document.getElementById("infoText").textContent  = project.info;
-  registry.sharedInfo.label       = project.title + " — info";
+  registry.sharedInfo.label       = project.title + " info";
   registry.sharedInfo.mobileLabel = "info.txt";
 
   if (registry.sharedInfo.taskBtn) {
@@ -774,8 +774,8 @@ let viewerItems   = [];
 let viewerIndex   = 0;
 let viewerProject = null;
 
-function openProjectMobile(projectKey) {
-  const project = projects[projectKey];
+function openProjectMobile(projectKey, projectOverride) {
+  const project = projectOverride || projects[projectKey];
   if (!project) return;
 
   viewerProject = project;
@@ -820,6 +820,7 @@ function openProjectMobile(projectKey) {
     createTaskButton("sharedViewer");
     registry.sharedViewer.created = true;
   }
+  // Always update taskbar button icon to match current project
   if (registry.sharedViewer.taskBtn) {
     const taskBtnIcon = registry.sharedViewer.taskBtn.querySelector("img");
     if (taskBtnIcon) taskBtnIcon.src = project.icon;
@@ -833,8 +834,8 @@ function openProjectMobile(projectKey) {
 
   setTimeout(() => {
     document.getElementById("infoTitle").textContent = project.title + " info.txt";
-    document.getElementById("infoText").textContent  = project.info;
-    registry.sharedInfo.label       = project.title + " — info";
+    document.getElementById("infoText").textContent  = project.info || "";
+    registry.sharedInfo.label       = project.title + " info";
     registry.sharedInfo.mobileLabel = "info.txt";
     if (registry.sharedInfo.taskBtn) {
       registry.sharedInfo.taskBtn.querySelector("span").innerHTML =
@@ -1023,9 +1024,23 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("augustIcon").onclick = (e) => {
     e.preventDefault();
-    const iframe = document.getElementById("augustIframe");
-    iframe.src = vimeoSrc("1207241027", true);
-    showWindow("augustWindow");
+    if (isMobile()) {
+      openProjectMobile("_august", {
+        title: "17 August 2024",
+        folder: "",
+        icon: "assets/task-icon-video.png",
+        info: `17 August 2024 is a poem I made using fragments of text I collected from one day of my browsing history, notifications and posts I interacted with on social media.`,
+        media: [{ type: "video", vimeoId: "1207241027", aspect: "portrait" }]
+      });
+    } else {
+      const iframe = document.getElementById("augustIframe");
+      iframe.src = vimeoSrc("1207241027", true);
+      showWindow("augustWindow");
+      openInfoDesktop({
+        title: "17 August 2024",
+        info: `17 August 2024 is a poem I made using fragments of text I collected from one day of my browsing history, notifications and posts I interacted with on social media.`
+      });
+    }
   };
 
   document.getElementById("jspaintIcon").onclick = (e) => {
